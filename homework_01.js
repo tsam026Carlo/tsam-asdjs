@@ -1,8 +1,11 @@
-function ex_1_I(x)
+function ex_1_I(n)
 {
-    somma=0;
-    somma=Math.pow(n,2);
-    return somma;
+	somma=0;
+	for(i=0;n[i]>=0||i>n.length;i++)
+	{
+		somma+=n[i];
+	}
+	console.log(somma);
 }
 function ex_1_R(x)
 {
@@ -10,7 +13,7 @@ function ex_1_R(x)
     {
         return 0;
     }
-    else
+    elsez
     {
         return ex_1_R(x.slice(1))+x[0];
     }
@@ -20,16 +23,9 @@ function ex_1_R(x)
 //esercizio 2 
 function ex_2_I(n)
 {
-	n;
-	i=1;
 	somma=0;
-	while(n>0)
-	{
-	   somma+=i;
-	   n--;
-	   i=i+2; 
-	}
-	return (somma);
+    somma=Math.pow(n,2);
+    return somma;
 }
 function ex_2_R(n)
 {
@@ -103,7 +99,7 @@ function ex_5_I(a,n)
 	{
 		molti+=n;
 	}
-	console.log(molti);
+	return (molti);
 }
 function ex_5_R(x,y)
 {
@@ -146,21 +142,25 @@ function ex_6_I(a,b)
 	}
 	return (uguale+" resto di "+resto);
 }
-var i=0;
+var Ri=0;
 var res=0;
 function ex_6_R(x,y)
 {
     
     if(x>=y)
-    {   i=i+1;
+    {   
+		Ri++;
 		res=x-y;
         return ex_6_R(x-y,y);
+		
     }
     else if(x<y)
     {
-        return (i+" resto "+res);
+		var ris=Ri;
+		Ri=0;
+        return (ris+" resto di "+res);
     }
-
+	
 }
 //esercizio 7
 function ex_7_I(a,n)
@@ -231,9 +231,9 @@ function ex_9_R(x)
     }
     else
     {
-        out9[out9.length-1]=x[0];
-        out9[out9.length]=x[x.length-1];
-        return ex_10_R(x.slice(1,x.length-1));
+        out9[out9.length/2-1]=x[0];
+        out9[out9.length/2]=x[x.length-1];
+        return ex_9_R(x.slice(1,x.length-1));
     }
 }
 //esercizio 10
@@ -250,9 +250,11 @@ function ex_10_I(a,n)
 repl=[];
 function ex_10_R(a,n)
 {
-    if(n==1)
+    if(n==0)
     {
-        return repl;
+		att=repl
+		repl=[];
+        return att;
     }
     else
     {
@@ -300,12 +302,12 @@ function ex_11_R(x)
     else if(x[0]%2==0)
     {
         par.push(x[0]);
-        return ordina(x.slice(1));
+        return  ex_11_R(x.slice(1));
     }
     else if(x[0]%2!=0)
     {
         disp.push(x[0]);
-        return ordina(x.slice(1));
+        return  ex_11_R(x.slice(1));
     }
     
 }
