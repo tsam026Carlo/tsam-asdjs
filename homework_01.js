@@ -13,7 +13,7 @@ function ex_1_R(x)
     {
         return 0;
     }
-    elsez
+    else
     {
         return ex_1_R(x.slice(1))+x[0];
     }
