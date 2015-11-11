@@ -5,7 +5,7 @@ function ex_1_I(n)
 	{
 		somma+=n[i];
 	}
-	console.log(somma);
+	return somma
 }
 function ex_1_R(x)
 {
@@ -186,7 +186,7 @@ function ex_7_R(x,y)
     }
     else
     {
-        return Pow(x+x,y-1);
+        return ex_7_R(x+x,y-1);
     }
 }
 //esercizio 8
