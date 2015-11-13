@@ -13,7 +13,7 @@ function ex_1_R(x)
     {
         return 0;
     }
-    elsez
+    else
     {
         return ex_1_R(x.slice(1))+x[0];
     }
@@ -38,26 +38,32 @@ function ex_2_R(n)
 function ex_3_I(avarage)
 {
 	var sum=0;
-	for(var i=0;i<10;i++) 
+	for(var i=0;i<avarage.length;i++) 
 	{
 		sum+=avarage[i];
 	}
-	sum=sum/10;
+	sum=sum/avarage.length;
 	return (sum);
 }
-somma=0;
-function ex_3_R(x)
+
+function ex_3_RI(x)
 {
     if(x.length==0)
     {
-        return somm/10;
+        return 0;
     }
     else
     {
-		somm+=x[0];
-        return ex_3_R(x.slice(1));
+        return ex_3_RI(x.slice(1))+x[0];
     }
 }
+function ex_3_R(x)
+{
+	var a = ex_3_RI(x);
+	return a/x.length;
+}
+
+
 //esercizio 4
 function ex_4_I(a,n)
 {
@@ -140,54 +146,58 @@ function ex_6_I(a,b)
 		}
 		
 	}
-	return (uguale+" resto di "+resto);
+	return [uguale,resto];
 }
-var Ri=0;
-var res=0;
+
 function ex_6_R(x,y)
+{
+	var Ri=0;
+	var res=0;
+	return ex_6_RI(x,y,Ri,res);
+}
+function ex_6_RI(x,y,Ri,res)
 {
     
     if(x>=y)
     {   
 		Ri++;
 		res=x-y;
-        return ex_6_R(x-y,y);
+        return ex_6_RI(x-y,y,Ri,res);
 		
     }
     else if(x<y)
     {
-		var ris=Ri;
-		Ri=0;
-        return (ris+" resto di "+res);
+		ris=Ri;
+        return [uguale,resto];
     }
 	
 }
 //esercizio 7
 function ex_7_I(a,n)
 {
-	numero=a;
-	for(h=0;h<n-1;h++)
-	{
-		mult=[numero,a];
-		molti=0;
-		for(i=0;i<mult[0];i++)
+	pow=a;
+		for(i=1;i<n;i++)
 		{
-			molti+=mult[1];
+			pow=ex_5_R(pow,a);
 		}
-		numero=molti;
-	}
-	return (numero);
+	return (pow);
 }
-function ex_7_R(x,y)
+function ex_7_RI(x,y,pow)
 {
     if(y==1)
     {
-        return x;
+        return pow*x;
     }
     else
     {
-        return ex_7_R(x+x,y-1);
+        return ex_7_RI(x,y-1,pow*x);
     }
+}
+function ex_7_R(x,y)
+{
+	pow=1;
+	return ex_7_RI(x,y,pow);
+
 }
 //esercizio 8
 function ex_8_I(nallaseconda)
@@ -208,6 +218,31 @@ function ex_8_I(nallaseconda)
 	}
 	return (a);
 }
+function ex_8_R(nallaseconda)
+{
+	ass=Math.sqrt(nallaseconda.length)
+	Narray=new Array();
+	return ex_8_RI(nallaseconda,Narray,-1,ass,ass);
+
+}
+function ex_8_RI(nallaseconda,Narray,vert,ori,sett)
+{
+	
+	if(ori==sett)
+	{
+		if(vert==sett-1)
+		{
+			return Narray;
+		}
+		Narray[vert+1]=new Array();
+		return ex_8_RI(nallaseconda,Narray,vert+1,0,sett);
+	}
+	else
+	{
+		Narray[vert][ori]=nallaseconda[0];
+		return ex_8_RI(nallaseconda.slice(1),Narray,vert,ori+1,sett);
+	}
+}
 //esercizio 9
 function ex_9_I(array)
 {
@@ -222,18 +257,21 @@ function ex_9_I(array)
 	}
 	return array;
 }
-out9=[];
 function ex_9_R(x)
 {
-    if(x.length/2<1)
+		out9=new Array(x.length);
+        return ex_9_RI(x,out9);
+}
+function ex_9_RI(x,out)
+{
+    if(x.length==0)
     {
         return out9;
     }
     else
     {
-        out9[out9.length/2-1]=x[0];
-        out9[out9.length/2]=x[x.length-1];
-        return ex_9_R(x.slice(1,x.length-1));
+        out9[x.length-1]=x[0];
+        return ex_9_RI(x.slice(1),out9);
     }
 }
 //esercizio 10
@@ -265,34 +303,33 @@ function ex_10_R(a,n)
 //esercizio 11
 function ex_11_I(input)
 {
+	disp=[];
+	par=[];
 	controllo=true;
 	for(i=0;i<input.length;i++)
 	{
 		if(input[i]%2==0)
 		{
-			for(j=i;j<input.length;j++)
-			{
-				if(input[j]%2!=0)
-				{
-					c=input[i];
-					input[i]=input[j];
-					input[j]=c;
-					controllo=false;
-				}
-			}
-			if(controllo==true)
-			{
-				break;
-			}
-			controllo=true;
+			par.push(input[i]);
+		}
+		else
+		{
+			disp.push(input[i]);
 		}
 	}
+	
 
-	return input;
+
+	return disp.concat(par);
 }
-disp=[];
-par=[];
+
 function ex_11_R(x)
+{
+	disp=[];
+	par=[];
+	return ex_11_RI(x,disp,par);
+}
+function ex_11_RI(x,disp,par)
 {
     if(x.length==0)
     {
@@ -302,12 +339,12 @@ function ex_11_R(x)
     else if(x[0]%2==0)
     {
         par.push(x[0]);
-        return  ex_11_R(x.slice(1));
+        return  ex_11_RI(x.slice(1),disp,par);
     }
     else if(x[0]%2!=0)
     {
         disp.push(x[0]);
-        return  ex_11_R(x.slice(1));
+        return  ex_11_RI(x.slice(1),disp,par);
     }
     
 }
