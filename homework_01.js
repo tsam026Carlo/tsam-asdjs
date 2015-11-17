@@ -45,7 +45,6 @@ function ex_3_I(avarage)
 	sum=sum/avarage.length;
 	return (sum);
 }
-
 function ex_3_RI(x)
 {
     if(x.length==0)
