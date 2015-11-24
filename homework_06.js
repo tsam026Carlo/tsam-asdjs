@@ -42,21 +42,3 @@ function CircularQueue(dim)
     };  
 
     variabile=new CircularQueue(3);
-    variabile.enqueue(1);
-    console.log(variabile.que)
-    variabile.enqueue(2);
-    console.log(variabile.que)
-    variabile.enqueue(3);
-    console.log(variabile.que)
-    variabile.enqueue(4);
-    console.log(variabile.que)
-    variabile.dequeue();
-    variabile.dequeue();
-    variabile.enqueue(4);
-    console.log(variabile.que)
-    variabile.dequeue();
-    variabile.dequeue();
-    variabile.enqueue(4);
-    console.log(variabile.que)
-    variabile.enqueue(4);
-    console.log(variabile.que)
