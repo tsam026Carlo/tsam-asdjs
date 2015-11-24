@@ -1,5 +1,5 @@
 //esercizio 1
-function ex_01_F(array)
+function ex_1_F(array)
 {
     tot=0;
     array.every(x=> {
@@ -18,7 +18,7 @@ function ex_01_F(array)
 
 //ex 2
 
-function ex_02_F(n)
+function ex_2_F(n)
 {
     a=[]
     for(i=1;i<n*2;i=i+2)                  //i=1 i<6 a[0]=1  |   i=3  3<6  a[1]=3; |   i=5   5<6   a[2]=5   |    i=7   7<6
@@ -39,7 +39,7 @@ function ex_04_I(num1,num2)
     }
     return a.reduce((x,y)=>x+y);
 }
-function ex_04_F(interv)
+function ex_4_F(interv)
 {
     if(interv[0]>interv[1])
     {
@@ -54,7 +54,7 @@ function ex_04_F(interv)
 
 //ex 5
 
-function ex_05_F(c,b)
+function ex_5_F(c,b)
 {
     a=[]
     for(i=0;i<b;i++)
@@ -66,7 +66,7 @@ function ex_05_F(c,b)
 
 //ex 6
 
-function ex_06_F(a,b)
+function ex_6_F(a,b)
 {
     var div=new Array();
     return ex_06_I(a,b,div);
@@ -104,7 +104,7 @@ function ex_06_I(a,b,div)
 
 //ex 07
 
-function ex_07_F(a,b)
+function ex_7_F(a,b)
 {
     res=1;
     for(i=0;i<b;i++)
@@ -112,7 +112,7 @@ function ex_07_F(a,b)
     return res;
 }
 
-function ex_08_F(array)
+function ex_08(array)
 {
     lung=Math.sqrt(array.length);
     return ex_08_I(array,lung);
