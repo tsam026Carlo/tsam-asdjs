@@ -1,11 +1,4 @@
-function queue()
-    {
-        this.que=new Array();
-        this.enqueue=function(e){return this.que.unshift(e)};
-        this.dequeue=function(){return this.que.pop()};
-        this.front=function(){return this.que[this.que.length-1]};
-        this.isEmpty=function(){return this.size()==0};  
-    }  
+ 
     function Stack()
     {
         this.bin=new Array();
