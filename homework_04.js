@@ -8,7 +8,7 @@
             return this.bin.pop();
         }
     }
-    function Dec2bin(dec)
+    function dec2bin(dec)
     {
         element= new Stack();
         Dec2bin1(dec,element);
@@ -19,7 +19,7 @@
         }
         return res;
     }
-    function Dec2bin1(dec,bin)
+    function dec2bin1(dec,bin)
     {       
             if(dec==1){
             bin.push(1);
