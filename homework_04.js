@@ -11,7 +11,7 @@
     function dec2bin(dec)
     {
         element= new Stack();
-        Dec2bin1(dec,element);
+        dec2bin1(dec,element);
         res="";
         while(element.bin.length>0)
         {
@@ -27,10 +27,10 @@
             } 
             if(dec%2==1){
             bin.push(1)
-            return Dec2bin1((dec-1)/2,bin);}
+            return dec2bin1((dec-1)/2,bin);}
             else{
             bin.push(0)
-            return Dec2bin1(dec/2,bin);} 
+            return dec2bin1(dec/2,bin);} 
     }
             
      
