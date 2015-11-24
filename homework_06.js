@@ -1,4 +1,4 @@
-function Queue(dim)
+function CircularQueue(dim)
     {
         this.inserisci=0;
         this.leggi=0;
@@ -41,7 +41,7 @@ function Queue(dim)
             }
     };  
 
-    variabile=new Queue(3);
+    variabile=new CircularQueue(3);
     variabile.enqueue(1);
     console.log(variabile.que)
     variabile.enqueue(2);
