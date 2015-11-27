@@ -5,7 +5,7 @@ function CircularQueue(dim)
         this.que=new Array(dim);
         
     } 
-    Queue.prototype.enqueue=function(e)
+    CircularQueue.prototype.enqueue=function(e)
     {
         if(this.que[this.inserisci]==null)
         {
@@ -15,7 +15,7 @@ function CircularQueue(dim)
                 this.inserisci=0;
         }
     };
-    Queue.prototype.dequeue=function()
+    CircularQueue.prototype.dequeue=function()
     {
         if(this.que[this.leggi]!=null)
         {
@@ -28,9 +28,9 @@ function CircularQueue(dim)
 
         }
     };
-    Queue.prototype.front=function(){return this.que[this.leggi-1]};
-    Queue.prototype.isEmpty=function(){return this.leggi==this.inserisci;};
-    Queue.prototype.size=function()
+    CircularQueue.prototype.front=function(){return this.que[this.leggi]};
+    CircularQueue.prototype.isEmpty=function(){return this.leggi==this.inserisci;};
+    CircularQueue.prototype.size=function()
     {
             if(this.inserisci>this.leggi)
             {
